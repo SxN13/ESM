@@ -45,7 +45,6 @@ public class Test_controller {
             mediaPlayer.play();
             mediaview.setMediaPlayer(mediaPlayer);
 
-
         });
 
     }
