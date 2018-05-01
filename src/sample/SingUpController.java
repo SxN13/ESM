@@ -53,7 +53,7 @@ public class SingUpController {
                Stage stage = new Stage();
                stage.setScene(new Scene(parent));
                stage.setTitle("Lection");
-               stage.showAndWait();
+               stage.show();
            } else {
                status_label.setText("Wrong login or password");
            }

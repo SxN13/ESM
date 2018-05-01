@@ -1,5 +1,6 @@
 package sample;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,6 +9,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -15,6 +19,8 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class Controller {
 
@@ -35,6 +41,9 @@ public class Controller {
 
     @FXML
     private Button b_prev;
+
+    @FXML
+    private Button b_exit;
 
     @FXML
     private AnchorPane anc;
@@ -70,9 +79,10 @@ public class Controller {
         Lection lection6 = new Lection(5,26,"Формат команд","sample/assets/fc/", ".PNG");
         Lection lection7 = new Lection(6,13,"Функциональная и структурная организация ЭВМ","sample/assets/fico/", ".PNG");
         Lection lection8 = new Lection(7,27,"Типы и форматы операндов","sample/assets/form/", ".PNG");
+        Lection lection9 = new Lection(8,0,"video test","", "");
 
         ObservableList<Lection> lections = FXCollections.observableArrayList(lection1,lection2,lection3,lection4,
-                lection5,lection6,lection7,lection8);
+                lection5,lection6,lection7,lection8, lection9);
 
         listViever.setItems(lections);
 
@@ -87,6 +97,20 @@ public class Controller {
                 half_path = newValue.getP();
                 p_counter = newValue.getPage_count();
                 status_label.setText(str + " " + newValue);
+                if (id_lec == 8){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/sample/test.fxml"));
+                    try {
+                        loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Parent parent = loader.getRoot();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(parent));
+                    stage.setTitle("Video");
+                    stage.showAndWait();
+                }
             }
         });
     //Кнопка назад
@@ -106,6 +130,7 @@ public class Controller {
             case 5: full_path = half_path + "Slide" + count + types; break;
             case 6: full_path = half_path + "Slide" + count + types; break;
             case 7: full_path = half_path + "Slide" + count + types; break;
+
         }
             System.out.println(full_path);
         image = new Image(full_path);
@@ -156,6 +181,22 @@ public class Controller {
         String s = ""; /*anc.getWidth() + " " + anc.getHeight()*/
         s += count;
         status_label.setText(s);
+    });
+
+    b_exit.setOnAction(event -> {
+        b_exit.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/sample/singUp.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent parent = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Lection");
+        stage.show();
     });
     }
 }
