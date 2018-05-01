@@ -20,12 +20,6 @@ public class Test_controller {
     private ResourceBundle resources;
 
     @FXML
-    private URL location;
-
-    @FXML
-    private Label status_label;
-
-    @FXML
     private MediaView mediaview;
 
     @FXML
