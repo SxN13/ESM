@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Video_Controller">
+    <children>
+        <Button fx:id="tb" layoutX="258.0" layoutY="361.0" mnemonicParsing="false" text="play" AnchorPane.bottomAnchor="73.0" />
+        <Label fx:id="stl" layoutX="10.0" layoutY="448.0" prefHeight="21.0" prefWidth="681.0" text="Label" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+        <Slider fx:id="slider" layoutX="10.0" layoutY="397.0" prefHeight="18.0" prefWidth="636.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="70.0" />
+        <Label fx:id="stl1" layoutX="668.0" layoutY="395.0" prefHeight="21.0" prefWidth="67.0" text="Label" textAlignment="CENTER" AnchorPane.bottomAnchor="49.0" AnchorPane.rightAnchor="5.0">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font></Label>
+        <Button fx:id="tb1" layoutX="406.0" layoutY="361.0" mnemonicParsing="false" text="stop" AnchorPane.bottomAnchor="73.0" />
+        <Button fx:id="tb2" layoutX="326.0" layoutY="361.0" mnemonicParsing="false" text="pause" AnchorPane.bottomAnchor="73.0" />
+        <AnchorPane fx:id="anc" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #101010;" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <children>
+                <MediaView fx:id="mv" fitHeight="345.0" fitWidth="730.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -99,7 +99,7 @@ public class Controller {
                 status_label.setText(str + " " + newValue);
                 if (id_lec == 8){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/sample/test.fxml"));
+                    loader.setLocation(getClass().getResource("/sample/video.fxml"));
                     try {
                         loader.load();
                     } catch (IOException e) {
@@ -119,8 +119,6 @@ public class Controller {
         if(id_lec == 999)
             status_label.setText("Choose lection");
 
-
-
         switch (id_lec){
             case 0: full_path = half_path + count + types; break;
             case 1: full_path = half_path + "Slide" + count + types; break;
@@ -130,7 +128,6 @@ public class Controller {
             case 5: full_path = half_path + "Slide" + count + types; break;
             case 6: full_path = half_path + "Slide" + count + types; break;
             case 7: full_path = half_path + "Slide" + count + types; break;
-
         }
             System.out.println(full_path);
         image = new Image(full_path);
