@@ -21,11 +21,16 @@
       <AnchorPane fx:id="anc" layoutX="247.0" layoutY="5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="855.0" style="-fx-background-color: #fafafa;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
             <ImageView fx:id="imageViever" fitHeight="623.0" fitWidth="855.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label fx:id="helper" layoutX="220.0" layoutY="312.0" prefHeight="30.0" prefWidth="416.0" text="Выберите лекцию и нажмите Next">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="5.0" layoutY="550.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="790.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
          <children>
-            <Label fx:id="status_label" layoutX="14.0" layoutY="7.0" prefHeight="31.0" prefWidth="651.0" text="Label" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="5.0">
+            <Label fx:id="status_label" layoutX="14.0" layoutY="7.0" prefHeight="31.0" prefWidth="651.0" textAlignment="CENTER" AnchorPane.leftAnchor="5.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

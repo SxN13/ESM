@@ -28,7 +28,7 @@ public class Controller {
     private ResourceBundle resources;
 
     @FXML
-    private Label status_label;
+    private Label status_label, helper;
 
     @FXML
     private URL location;
@@ -68,14 +68,14 @@ public class Controller {
 /***************************************************************************************************************/
         listViever.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         Lection lection1 = new Lection(0, 5,"тестовые вариант изображений","sample/assets/test/",".jpg");
-        Lection lection2 = new Lection(1, 14,"Классификация современных ПК","sample/assets/classification_PC/", ".PNG");
-        Lection lection3 = new Lection(2,26,"Архитектура системы команд","sample/assets/asc/", ".PNG");
-        Lection lection4 = new Lection(3,17,"Устройства управления","sample/assets/contr/", ".PNG");
-        Lection lection5 = new Lection(4,34,"Конвейерная обработка команд","sample/assets/conv/", ".PNG");
-        Lection lection6 = new Lection(5,26,"Формат команд","sample/assets/fc/", ".PNG");
-        Lection lection7 = new Lection(6,13,"Функциональная и структурная организация ЭВМ","sample/assets/fico/", ".PNG");
-        Lection lection8 = new Lection(7,27,"Типы и форматы операндов","sample/assets/form/", ".PNG");
-        Lection lection9 = new Lection(8,0,"Введения в Quartus","src/sample/media/introductionQuartus.mp4", "");
+        Lection lection2 = new Lection(1, 14,"1. Классификация современных ПК","sample/assets/classification_PC/", ".PNG");
+        Lection lection3 = new Lection(2,26,"2. Архитектура системы команд","sample/assets/asc/", ".PNG");
+        Lection lection4 = new Lection(3,17,"3. Устройства управления","sample/assets/contr/", ".PNG");
+        Lection lection5 = new Lection(4,34,"4. Конвейерная обработка команд","sample/assets/conv/", ".PNG");
+        Lection lection6 = new Lection(5,26,"5. Формат команд","sample/assets/fc/", ".PNG");
+        Lection lection7 = new Lection(6,13,"6. Функциональная и структурная организация ЭВМ","sample/assets/fico/", ".PNG");
+        Lection lection8 = new Lection(7,27,"7. Типы и форматы операндов","sample/assets/form/", ".PNG");
+        Lection lection9 = new Lection(8,0,"8. (ВИДЕО) Введения в Quartus","src/sample/media/introductionQuartus.mp4", "");
 
         ObservableList<Lection> lections = FXCollections.observableArrayList(lection1,lection2,lection3,lection4,
                 lection5,lection6,lection7,lection8, lection9);
@@ -86,13 +86,13 @@ public class Controller {
         listViever.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Lection>() {
             @Override
             public void changed(ObservableValue<? extends Lection> observable, Lection oldValue, Lection newValue) {
+                status_label.setText("Нажмите Next");
                 count = 1;
                 id_lec = newValue.getId();
                 str = newValue.getLec_name();
                 types = newValue.getTypeFile();
                 half_path = newValue.getP();
                 p_counter = newValue.getPage_count();
-                status_label.setText(str + " " + newValue);
                 if (id_lec == 8){
                     t1.setStr(newValue.getP());
                     FXMLLoader loader = new FXMLLoader();
@@ -112,6 +112,7 @@ public class Controller {
         });
     //Кнопка назад
         b_next.setOnAction(event -> {
+            helper.setText("");
             System.out.println(id_lec+"\n"+p_counter+"\n"+str+"\n"+half_path+"\n"+types);
         if(id_lec == 999)
             status_label.setText("Choose lection");
@@ -140,13 +141,13 @@ public class Controller {
 
         System.out.println("b_next is pressed");
         String s = ""; /*anc.getWidth() + " " + anc.getHeight()*/
-            s += count;
+            s = String.valueOf(count);
         status_label.setText(s);
         });
 
     //Кнопка назад
     b_prev.setOnAction(event -> {
-
+        helper.setText("");
         System.out.println(id_lec+"\n"+p_counter+"\n"+str+"\n"+half_path+"\n"+types);
         if(id_lec == 999)
             status_label.setText("Choose lection");

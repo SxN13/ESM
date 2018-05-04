@@ -111,5 +111,10 @@ public class Video_Controller {
         tb1.setOnAction(event -> {
             mediaPlayer.stop();
         });
+
+        Stage stage = (Stage) anc.getScene().getWindow();
+        stage.setOnCloseRequest(event -> {
+            mediaPlayer.stop();
+        });
     }
 }
