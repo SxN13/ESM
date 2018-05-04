@@ -1,6 +1,9 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -8,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -43,15 +47,19 @@ public class Video_Controller {
     MediaPlayer mediaPlayer;
     Duration duration;
     double d,w,h;
+    Temp temp = new Temp();
+    Controller controller = new Controller();
 
     @FXML
     void initialize() {
-        sourse = "file:/C:/Users/SxN/IdeaProjects/untitled/src/sample/video.mp4";
-        File file = new File("src/sample/video.mp4");
-        status = file.toURI().toString();
-        System.out.println(sourse + "\n" + status);
+        System.out.println(temp.getStr());
+        System.out.println(controller.set_locale());
 
-        media = new Media(sourse);
+        File file = new File(temp.str);
+
+        status = file.toURI().toString();
+
+        media = new Media(status);
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.getCurrentTime();
         mediaPlayer.setAutoPlay(false);
@@ -76,7 +84,7 @@ public class Video_Controller {
             slider.setShowTickMarks(false);
             slider.setShowTickLabels(false);
             stl.setText(status);
-
+            mv.setPreserveRatio(true);
             mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
                 slider.setValue(newValue.toMinutes());
                 d = mediaPlayer.getTotalDuration().toMinutes()-newValue.toMinutes();
@@ -89,18 +97,17 @@ public class Video_Controller {
 
         });
 
-        if (status.equals(sourse))
-            System.out.println("equals");
-        else
-            System.out.println("NO");
-
+        //Кнопка PLAY
         tb.setOnAction(event -> {
             mediaPlayer.play();
         });
 
+        //Кнопка PAUSE
         tb2.setOnAction(event -> {
             mediaPlayer.pause();
         });
+
+        //Кнопка STOP
         tb1.setOnAction(event -> {
             mediaPlayer.stop();
         });

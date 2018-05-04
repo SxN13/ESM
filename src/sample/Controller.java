@@ -58,13 +58,9 @@ public class Controller {
     Image image;
     String half_path = null;
     String types = null;
+    private String flow;
+    private Temp t1 = new Temp();
 
-
-    public String set_locale(String str){
-
-        half_path = str;
-        return half_path;
-    }
 
     @FXML
     void initialize() {
@@ -79,7 +75,7 @@ public class Controller {
         Lection lection6 = new Lection(5,26,"Формат команд","sample/assets/fc/", ".PNG");
         Lection lection7 = new Lection(6,13,"Функциональная и структурная организация ЭВМ","sample/assets/fico/", ".PNG");
         Lection lection8 = new Lection(7,27,"Типы и форматы операндов","sample/assets/form/", ".PNG");
-        Lection lection9 = new Lection(8,0,"video test","", "");
+        Lection lection9 = new Lection(8,0,"Введения в Quartus","src/sample/media/introductionQuartus.mp4", "");
 
         ObservableList<Lection> lections = FXCollections.observableArrayList(lection1,lection2,lection3,lection4,
                 lection5,lection6,lection7,lection8, lection9);
@@ -98,6 +94,7 @@ public class Controller {
                 p_counter = newValue.getPage_count();
                 status_label.setText(str + " " + newValue);
                 if (id_lec == 8){
+                    t1.setStr(newValue.getP());
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/sample/video.fxml"));
                     try {
@@ -195,5 +192,10 @@ public class Controller {
         stage.setTitle("Lection");
         stage.show();
     });
+
+    }
+
+    public String set_locale(){
+        return flow;
     }
 }
