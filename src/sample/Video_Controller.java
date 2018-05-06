@@ -48,7 +48,6 @@ public class Video_Controller {
     Duration duration;
     double d,w,h;
     Temp temp = new Temp();
-    Controller controller = new Controller();
 
     @FXML
     void initialize() {
