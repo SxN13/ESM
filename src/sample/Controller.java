@@ -61,24 +61,26 @@ public class Controller {
     private String flow;
     private Temp t1 = new Temp();
 
-
     @FXML
     void initialize() {
         status_label.setText(null);
 /***************************************************************************************************************/
         listViever.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        Lection lection1 = new Lection(0, 5,"тестовые вариант изображений","sample/assets/test/",".jpg");
-        Lection lection2 = new Lection(1, 14,"1. Классификация современных ПК","sample/assets/classification_PC/", ".PNG");
-        Lection lection3 = new Lection(2,26,"2. Архитектура системы команд","sample/assets/asc/", ".PNG");
-        Lection lection4 = new Lection(3,17,"3. Устройства управления","sample/assets/contr/", ".PNG");
-        Lection lection5 = new Lection(4,34,"4. Конвейерная обработка команд","sample/assets/conv/", ".PNG");
-        Lection lection6 = new Lection(5,26,"5. Формат команд","sample/assets/fc/", ".PNG");
-        Lection lection7 = new Lection(6,13,"6. Функциональная и структурная организация ЭВМ","sample/assets/fico/", ".PNG");
-        Lection lection8 = new Lection(7,27,"7. Типы и форматы операндов","sample/assets/form/", ".PNG");
-        Lection lection9 = new Lection(8,0,"8. (ВИДЕО) Введения в Quartus","src/sample/media/introductionQuartus.mp4", "");
 
-        ObservableList<Lection> lections = FXCollections.observableArrayList(lection1,lection2,lection3,lection4,
-                lection5,lection6,lection7,lection8, lection9);
+        Lection lection2 = new Lection(1, 14,"1. Классификация современных ПК","sample/assets/kp/", ".PNG");
+        Lection lection3 = new Lection(2,26,"2. Архитектура системы команд","sample/assets/ask/", ".PNG");
+        Lection lection4 = new Lection(3,17,"3. Устройства управления","sample/assets/uu/", ".PNG");
+        Lection lection5 = new Lection(4,34,"4. Конвейерная обработка команд","sample/assets/kok/", ".PNG");
+        Lection lection6 = new Lection(5,26,"5. Формат команд","sample/assets/fc/", ".PNG");
+        Lection lection7 = new Lection(6,13,"6. Функциональная и структурная организация ЭВМ","sample/assets/fso/", ".PNG");
+        Lection lection8 = new Lection(7,27,"7. Типы и форматы операндов","sample/assets/tfo/", ".PNG");
+        Lection lection10 = new Lection(8,17,"8. КЭШ-память","sample/assets/cac/", ".PNG");
+        Lection lection11 = new Lection(9,12,"9. Мультизадачность","sample/assets/mul/", ".PNG");
+        Lection lection12 = new Lection(10,12,"10. Система памяти","sample/assets/sp/", ".PNG");
+        Lection lection9 = new Lection(11,0,"11. (ВИДЕО) Введения в Quartus","src/sample/media/introductionQuartus.mp4", "");
+
+        ObservableList<Lection> lections = FXCollections.observableArrayList(lection2,lection3,lection4,
+                lection5,lection6,lection7,lection8,lection10, lection11, lection12, lection9);
 
         listViever.setItems(lections);
 
@@ -86,14 +88,12 @@ public class Controller {
         listViever.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Lection>() {
             @Override
             public void changed(ObservableValue<? extends Lection> observable, Lection oldValue, Lection newValue) {
+                helper.setText("");
                 status_label.setText("Нажмите Next");
                 count = 1;
                 id_lec = newValue.getId();
-                str = newValue.getLec_name();
-                types = newValue.getTypeFile();
-                half_path = newValue.getP();
-                p_counter = newValue.getPage_count();
-                if (id_lec == 8){
+
+                if (id_lec == 11){
                     t1.setStr(newValue.getP());
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/sample/video.fxml"));
@@ -108,6 +108,18 @@ public class Controller {
                     stage.setTitle("Video");
                     stage.showAndWait();
                 }
+                else {
+                    str = newValue.getLec_name();
+                    types = newValue.getTypeFile();
+                    half_path = newValue.getP();
+                    p_counter = newValue.getPage_count();
+
+                    full_path = half_path + "Slide" + count + types;
+
+                    image = new Image(full_path);
+                    imageViever.setFitWidth(anc.getWidth());
+                    imageViever.setImage(image);
+                }
             }
         });
     //Кнопка назад
@@ -117,32 +129,24 @@ public class Controller {
         if(id_lec == 999)
             status_label.setText("Choose lection");
 
-        switch (id_lec){
-            case 0: full_path = half_path + count + types; break;
-            case 1: full_path = half_path + "Slide" + count + types; break;
-            case 2: full_path = half_path + "Slide" + count + types; break;
-            case 3: full_path = half_path + "Slide" + count + types; break;
-            case 4: full_path = half_path + "Slide" + count + types; break;
-            case 5: full_path = half_path + "Slide" + count + types; break;
-            case 6: full_path = half_path + "Slide" + count + types; break;
-            case 7: full_path = half_path + "Slide" + count + types; break;
-        }
-            System.out.println(full_path);
-        image = new Image(full_path);
-        imageViever.setFitWidth(anc.getWidth());
-        imageViever.setImage(image);
-        System.out.println(full_path);
-        System.out.println(count);
-
             if(count == p_counter)
                 count = 1;
             else
                 count++;
 
+        full_path = half_path + "Slide" + count + types;
+
+        System.out.println(full_path);
+        System.out.println(count);
+        image = new Image(full_path);
+        imageViever.setFitWidth(anc.getWidth());
+        imageViever.setImage(image);
+
         System.out.println("b_next is pressed");
         String s = ""; /*anc.getWidth() + " " + anc.getHeight()*/
             s = String.valueOf(count);
-        status_label.setText(s);
+
+            status_label.setText(s);
         });
 
     //Кнопка назад
@@ -151,30 +155,24 @@ public class Controller {
         System.out.println(id_lec+"\n"+p_counter+"\n"+str+"\n"+half_path+"\n"+types);
         if(id_lec == 999)
             status_label.setText("Choose lection");
-        switch (id_lec){
-            case 0: full_path = half_path + count + types; break;
-            case 1: full_path = half_path + "Slide" + count + types; break;
-            case 2: full_path = half_path + "Slide" + count + types; break;
-            case 3: full_path = half_path + "Slide" + count + types; break;
-            case 4: full_path = half_path + "Slide" + count + types; break;
-            case 5: full_path = half_path + "Slide" + count + types; break;
-            case 6: full_path = half_path + "Slide" + count + types; break;
-            case 7: full_path = half_path + "Slide" + count + types; break;
-        }
-        System.out.println(full_path);
-        image = new Image(full_path);
-        imageViever.setFitWidth(anc.getWidth());
-        imageViever.setImage(image);
         System.out.println(full_path);
         System.out.println(count);
+
         if(count == 1)
             count = p_counter;
         else
             count--;
 
+        full_path = half_path + "Slide" + count + types;
+
+        image = new Image(full_path);
+        imageViever.setFitWidth(anc.getWidth());
+        imageViever.setImage(image);
+
         System.out.println("b_prev is pressed");
         String s = ""; /*anc.getWidth() + " " + anc.getHeight()*/
         s += count;
+
         status_label.setText(s);
     });
 
@@ -194,9 +192,5 @@ public class Controller {
         stage.show();
     });
 
-    }
-
-    public String set_locale(){
-        return flow;
     }
 }

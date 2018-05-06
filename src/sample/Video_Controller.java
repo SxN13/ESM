@@ -53,7 +53,6 @@ public class Video_Controller {
     @FXML
     void initialize() {
         System.out.println(temp.getStr());
-        System.out.println(controller.set_locale());
 
         File file = new File(temp.str);
 

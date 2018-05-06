@@ -25,14 +25,14 @@
         </AnchorPane>
       <AnchorPane layoutX="41.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="718.0" style="-fx-background-color: #fff; -fx-background-radius: 12; -fx-border-color: #000; -fx-border-radius: 12;" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="50.0">
          <children>
-            <TextField fx:id="login_field" layoutX="266.0" layoutY="200.0" promptText="Login" style="-fx-border-color: #fafafa;" />
-            <TextField fx:id="pass_field" layoutX="266.0" layoutY="250.0" promptText="Password" style="-fx-border-color: #fafafa;" />
-            <Label layoutX="158.0" layoutY="204.0" text="App-aunth&gt;">
+            <TextField fx:id="login_field" layoutX="265.0" layoutY="199.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Login" style="-fx-border-color: #fafafa;" AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="253.0" />
+            <TextField fx:id="pass_field" layoutX="266.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Password" style="-fx-border-color: #fafafa;" AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="254.0" />
+            <Label layoutX="280.0" layoutY="157.0" prefHeight="22.0" prefWidth="161.0" text="authentication" textAlignment="CENTER" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="279.0">
                <font>
                   <Font name="Consolas Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="log_button" contentDisplay="CENTER" defaultButton="true" layoutX="332.0" layoutY="303.0" mnemonicParsing="false" text="Login" textAlignment="CENTER" />
+            <Button fx:id="log_button" contentDisplay="CENTER" defaultButton="true" layoutX="331.0" layoutY="299.0" mnemonicParsing="false" text="Login" textAlignment="CENTER" />
          </children>
       </AnchorPane>
     </children>
