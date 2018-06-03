@@ -3,6 +3,7 @@ package sample;
 public class Lection {
     private int id, page_count;
     private String lec_name, p, typeFile;
+
     public Lection(int id,int page_count, String lec_name, String p, String typeFile){
         this.id = id;
         this.p = p;

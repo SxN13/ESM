@@ -58,7 +58,6 @@ public class Controller {
     Image image;
     String half_path = null;
     String types = null;
-    private String flow;
     private Temp t1 = new Temp();
 
     @FXML
@@ -77,7 +76,7 @@ public class Controller {
         Lection lection10 = new Lection(8,17,"8. КЭШ-память","sample/assets/cac/", ".PNG");
         Lection lection11 = new Lection(9,12,"9. Мультизадачность","sample/assets/mul/", ".PNG");
         Lection lection12 = new Lection(10,12,"10. Система памяти","sample/assets/sp/", ".PNG");
-        Lection lection9 = new Lection(11,0,"11. (ВИДЕО) Введения в Quartus","src/sample/media/introductionQuartus.mp4", "");
+        Lection lection9 = new Lection(11,0,"11. (ВИДЕО) Введения в Quartus","src/sample/media/introductionQuartus.mp4", ".mp4");
 
         ObservableList<Lection> lections = FXCollections.observableArrayList(lection2,lection3,lection4,
                 lection5,lection6,lection7,lection8,lection10, lection11, lection12, lection9);
@@ -122,7 +121,14 @@ public class Controller {
                 }
             }
         });
-    //Кнопка назад
+
+        anc.heightProperty().addListener((observable, oldValue, newValue) -> {
+            imageViever.setFitHeight(newValue.doubleValue());
+        });
+        anc.widthProperty().addListener((observable, oldValue, newValue) -> {
+            imageViever.setFitWidth(newValue.doubleValue());
+        });
+    //Кнопка вперёд
         b_next.setOnAction(event -> {
             helper.setText("");
             System.out.println(id_lec+"\n"+p_counter+"\n"+str+"\n"+half_path+"\n"+types);

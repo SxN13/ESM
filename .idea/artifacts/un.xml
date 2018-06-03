@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="un">
+    <output-path>$PROJECT_DIR$/out/artifacts/un</output-path>
+    <root id="archive" name="un.jar">
+      <element id="directory" name="src">
+        <element id="directory" name="sample">
+          <element id="directory" name="media">
+            <element id="file-copy" path="$PROJECT_DIR$/src/sample/media/introductionQuartus.mp4" />
+          </element>
+        </element>
+      </element>
+      <element id="module-output" name="untitled" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

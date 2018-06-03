@@ -15,12 +15,6 @@ import javafx.stage.Stage;
 public class SingUpController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private Label status_label;
 
     @FXML
